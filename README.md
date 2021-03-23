@@ -1,7 +1,6 @@
 - 👋 Hi, I’m @alfonsoCourse
 - 👀 I’m interested in Digital Security
-- 🌱 I’m currently Studying Computer Science in Anglia Ruskin University
-- 📫 How to reach me --> alfonsodemata@gmail.com 
+- 🌱 I’m currently Studying Computer Science in Anglia Ruskin University 
 
 <!---
 alfonsoCourse/alfonsoCourse is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
