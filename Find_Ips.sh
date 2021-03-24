@@ -1,3 +1,5 @@
+#Scripted for Kali 2020.4
+
 #!/bin/bash
 option=$1
 if [ "$option" == "" ]
