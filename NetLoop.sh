@@ -1,31 +1,26 @@
 #!/bin/bash
-
 echo " Cuantos pings por archivo?"
-read count
+	read count
 echo " interval per ping?"
-read inter
+	read inter
 ideal=$(( $count * $inter))
 echo " Create a new file every x seconds (tiempo de cada Ronda) Recommend: $ideal"
-read time
+	read time
 echo " How many files ?"
-read filesnum
+	read filesnum
 total=$(($filesnum*$time))
 echo " Total time: $total seconds"
-
-f=0
-
+f=1
 while [ $f -le $filesnum ] 
 do 
-now=$(date)
-
-#IPs.txt is a list of IP add. you can add more IPs while the loop is working
-
-file=$(cat ./"IPs".txt)
-
-for i in $file
-do
-ping -i $inter -c $count $i >> "$i""_""$now".txt &
-done
-((f++))
-sleep $time
+	now=$(date "+%Y_%m_%d_%H_%M_%S")
+	#IPs.txt is a list of IP add. you can add more IPs while the loop is working
+	file=$(cat ./"IPs".txt)
+		for i in $file
+			do
+				ping -i $inter -c $count $i >> "$i""_""$now".txt &
+				echo "$i""-""$now""------>No.$f out of $filesnum"
+			done
+	((f++))
+	sleep $time
 done
