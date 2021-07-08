@@ -12,7 +12,7 @@ read time
 while true; do 
 now=$(date)
 
-#Hello.txt is a list of IP add. you can add more IPs while the loop is working
+#IPs.txt is a list of IP add. you can add more IPs while the loop is working
 
 file=$(cat ./"IPs".txt)
 
