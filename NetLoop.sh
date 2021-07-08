@@ -1,15 +1,21 @@
 #!/bin/bash
-#Popular un archivo de txt para hacer de base de lista de IPs
-#Modificar los intervalos de cada ping ej. un ping cada 3s 
-#Cuantos pings
-echo "stop after replies "
-read inter
-echo " How many seconds between sending each packet?"
-read count
-echo " Create a new file every x seconds"
-read time
 
-while true; do 
+echo " Cuantos pings por archivo?"
+read count
+echo " interval per ping?"
+read inter
+ideal=$(( $count * $inter))
+echo " Create a new file every x seconds (tiempo de cada Ronda) Recommend: $ideal"
+read time
+echo " How many files ?"
+read filesnum
+total=$(($filesnum*$time))
+echo " Total time: $total seconds"
+
+f=0
+
+while [ $f -le $filesnum ] 
+do 
 now=$(date)
 
 #IPs.txt is a list of IP add. you can add more IPs while the loop is working
@@ -20,6 +26,6 @@ for i in $file
 do
 ping -i $inter -c $count $i >> "$i""_""$now".txt &
 done
-
+((f++))
 sleep $time
 done
