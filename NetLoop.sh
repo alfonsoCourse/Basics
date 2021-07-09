@@ -1,4 +1,4 @@
-#!/bin/bash
+##!/bin/bash
 #echo " Cuantos pings por archivo?"
 #	read count
 #echo " Cada cuantos segundos quieres que se mande cada PING?"
@@ -19,7 +19,7 @@ do
 		for i in $file
 			do
 				ping -i 1 -c $2 $i >> "$1""-""$i""-""$now".txt &
-				echo "$1""$i""-""$now""------>No.$f out of $filesnum"
+				echo "$1""-""$i""-""$now""------>No.$f out of $filesnum"
 			done
 	((f++))
 	sleep $2
