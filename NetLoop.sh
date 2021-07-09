@@ -1,15 +1,15 @@
 #!/bin/bash
 echo " Cuantos pings por archivo?"
 	read count
-echo " interval per ping?"
+echo " Cada cuantos segundos quieres que se mande cada PING?"
 	read inter
 ideal=$(( $count * $inter))
-echo " Create a new file every x seconds (tiempo de cada Ronda) Recommend: $ideal"
+echo "Tiempo de cada nuevo archivo. Se recomienda: $ideal segundos"
 	read time
-echo " How many files ?"
+echo " Cuantos archivos desea ?"
 	read filesnum
 total=$(($filesnum*$time))
-echo " Total time: $total seconds"
+echo " Tiempo estimado: $total segundos, equivalente a "$((total/60))" minutos"
 f=1
 while [ $f -le $filesnum ] 
 do 
@@ -18,7 +18,7 @@ do
 	file=$(cat ./"IPs".txt)
 		for i in $file
 			do
-				ping -i $inter -c $count $i >> "$i""_""$now".txt &
+				ping -i $inter -c $count $i >> "$i""-""$now".txt &
 				echo "$i""-""$now""------>No.$f out of $filesnum"
 			done
 	((f++))
